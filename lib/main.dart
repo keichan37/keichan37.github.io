@@ -84,6 +84,7 @@ class MyApp extends StatelessWidget {
                   fontSize: 14,
                   decoration: TextDecoration.none,
                   fontWeight: FontWeight.w400,
+                  height: 1.4,
                 ),
               ),
             ),
