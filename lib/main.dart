@@ -21,7 +21,7 @@ class MyApp extends StatelessWidget {
       ),
       home: Container(
         width: double.infinity,
-        padding: const EdgeInsets.symmetric(vertical: 95),
+        padding: EdgeInsets.only(top: 95, right: 40, bottom: 95, left: 40),
         child: Column(
           mainAxisSize: MainAxisSize.min,
           mainAxisAlignment: MainAxisAlignment.start,
