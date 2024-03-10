@@ -67,8 +67,8 @@ class MyApp extends StatelessWidget {
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(5),
                 clipBehavior: Clip.hardEdge,
-                child: Image.asset(
-                  'images/yy.png.webp',
+                child: Image.network(
+                  'https://raw.githubusercontent.com/keichan37/keichan37.github.io/master/images/yy.png.webp',
                   fit: BoxFit.cover,
                 ),
               ),
