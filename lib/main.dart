@@ -69,7 +69,7 @@ class MyApp extends StatelessWidget {
                 borderRadius: BorderRadius.circular(5),
                 clipBehavior: Clip.hardEdge,
                 child: Image.network(
-                  'https://raw.githubusercontent.com/keichan37/keichan37.github.io/master/images/yy.png.webp',
+                  'https://raw.githubusercontent.com/keichan37/keichan37.github.io/master/assets/images/yy.png.webp',
                   fit: BoxFit.cover,
                 ),
               ),
@@ -96,8 +96,8 @@ class MyApp extends StatelessWidget {
                 //- 右寄せ
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
-                  SvgPicture.asset(
-                    'images/circleArrowRight.svg',
+                  SvgPicture.network(
+                    'https://raw.githubusercontent.com/keichan37/keichan37.github.io/master/assets/images/circleArrowRight.svg',
                   ),
                   const SizedBox(width: 8),
                   Text(
