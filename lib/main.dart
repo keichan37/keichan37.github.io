@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 void main() {
   runApp(const MyApp());
@@ -86,6 +87,30 @@ class MyApp extends StatelessWidget {
                   fontWeight: FontWeight.w400,
                   height: 1.4,
                 ),
+              ),
+            ),
+            const SizedBox(height: 30),
+            Container(
+              width: 800,
+              child: Row(
+                //- 右寄せ
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  SvgPicture.asset(
+                    'images/circleArrowRight.svg',
+                  ),
+                  const SizedBox(width: 8),
+                  Text(
+                    '詳しく見る',
+                    style: TextStyle(
+                      color: Color(0xFF231e1e),
+                      fontSize: 14,
+                      decoration: TextDecoration.none,
+                      fontWeight: FontWeight.w400,
+                      height: 1.4,
+                    ),
+                  ),
+                ],
               ),
             ),
           ],
