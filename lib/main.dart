@@ -12,7 +12,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo / muy',
+      title: 'Flutter Demo / yy',
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
@@ -103,7 +103,7 @@ class MyApp extends StatelessWidget {
                   Text(
                     '詳しく見る',
                     style: TextStyle(
-                      color: Color(0xFF231e1e),
+                      color: Color(0xFF514949),
                       fontSize: 14,
                       decoration: TextDecoration.none,
                       fontWeight: FontWeight.w400,
