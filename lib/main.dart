@@ -3,7 +3,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(const MaterialApp(home: MyApp()));
 }
 
 class MyApp extends StatelessWidget {
@@ -92,25 +92,58 @@ class MyApp extends StatelessWidget {
             const SizedBox(height: 30),
             Container(
               width: 800,
-              child: Row(
-                //- 右寄せ
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: [
-                  SvgPicture.network(
-                    'https://raw.githubusercontent.com/keichan37/keichan37.github.io/master/assets/images/circleArrowRight.svg',
-                  ),
-                  const SizedBox(width: 8),
-                  Text(
-                    '詳しく見る',
-                    style: TextStyle(
-                      color: Color(0xFF514949),
-                      fontSize: 14,
-                      decoration: TextDecoration.none,
-                      fontWeight: FontWeight.w400,
-                      height: 1.4,
+              child: GestureDetector(
+                onTap: () {
+                  showDialog(
+                    context: context,
+                    builder: (context) {
+                      return AlertDialog(
+                        title: Text('急に芯食ってくんな‼︎'),
+                        content: Text('確かにそうゆう説もあるよ‼︎'),
+                        actions: <Widget>[
+                          GestureDetector(
+                            child: Text('いいえ'),
+                            onTap: () {
+                              Navigator.pop(context);
+                            },
+                          ),
+                          GestureDetector(
+                            child: Text('はい'),
+                            onTap: () {
+                              Navigator.pop(context);
+                            },
+                          )
+                        ],
+                      );
+                    }
+                  );
+                },
+                child: Row(
+                  //- 右寄せ
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    SvgPicture.network(
+                      'https://raw.githubusercontent.com/keichan37/keichan37.github.io/master/assets/images/circleArrowRight.svg',
                     ),
-                  ),
-                ],
+                    Container(
+                      color: Color(0xFFffffff),
+                      child: SizedBox(
+                        width: 8,
+                        height: 14,
+                      ),
+                    ),
+                    Text(
+                      '詳しく見る',
+                      style: TextStyle(
+                        color: Color(0xFF514949),
+                        fontSize: 14,
+                        decoration: TextDecoration.none,
+                        fontWeight: FontWeight.w400,
+                        height: 1.4,
+                      ),
+                    ),
+                  ],
+                ),
               ),
             ),
           ],
