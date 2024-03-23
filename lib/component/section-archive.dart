@@ -3,6 +3,12 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 class SectionWidget extends StatelessWidget {
+  final String title_jp;
+  final String title_en;
+  final String content;
+  final String img;
+  SectionWidget(this.title_jp,this.title_en,this.content,this.img);
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -14,7 +20,7 @@ class SectionWidget extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Text(
-            '山本耀司',
+            title_jp,
             textAlign: TextAlign.center,
             style: GoogleFonts.shipporiMincho(
               textStyle: Theme.of(context).textTheme.headlineMedium,
@@ -28,7 +34,7 @@ class SectionWidget extends StatelessWidget {
           const SizedBox(height: 14),
           SizedBox(
             child: Text(
-              'Yohji Yamamoto',
+              title_en,
               textAlign: TextAlign.center,
               style: TextStyle(
                 color: Color(0xFF231e1e),
@@ -54,7 +60,7 @@ class SectionWidget extends StatelessWidget {
               borderRadius: BorderRadius.circular(5),
               clipBehavior: Clip.hardEdge,
               child: Image.network(
-                'https://raw.githubusercontent.com/keichan37/keichan37.github.io/master/assets/images/yy.png.webp',
+                img,
                 fit: BoxFit.cover,
               ),
             ),
@@ -63,7 +69,7 @@ class SectionWidget extends StatelessWidget {
           SizedBox(
             width: 800,
             child: Text(
-              '歌舞伎町で百貨店に総菜を卸す会社を経営する父・山本文雄と、その経理や事務作業を手伝っていた母・山本冨美の長男として東京都新宿区に生まれた[3]。父がルソン島で戦死した後、母は歌舞伎町でオーダーメイドの洋装店（フミ洋装店）を営んでいた（母も文化服装学院出身）[4]。',
+              content,
               textAlign: TextAlign.left,
               style: TextStyle(
                 color: Color(0xFF231e1e),
