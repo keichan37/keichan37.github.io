@@ -24,7 +24,7 @@ class SectionWidget extends StatelessWidget {
             textAlign: TextAlign.center,
             style: GoogleFonts.shipporiMincho(
               textStyle: Theme.of(context).textTheme.headlineMedium,
-              color: Color(0xFF231e1e),
+              color: Theme.of(context).colorScheme.primary,
               fontSize: 40.0,
               letterSpacing: 8,
               fontWeight: FontWeight.w500,
@@ -37,7 +37,7 @@ class SectionWidget extends StatelessWidget {
               title_en,
               textAlign: TextAlign.center,
               style: TextStyle(
-                color: Color(0xFF231e1e),
+                color: Theme.of(context).colorScheme.primary,
                 fontSize: 16,
                 decoration: TextDecoration.none,
                 fontWeight: FontWeight.w400,
@@ -50,7 +50,7 @@ class SectionWidget extends StatelessWidget {
             height: 200,
             //- 角丸ボーダー
             foregroundDecoration: BoxDecoration(
-              border: Border.all(color: Color(0xFFdddddd), width: 1),
+              border: Border.all(color: Theme.of(context).colorScheme.surface, width: 1),
               borderRadius: BorderRadius.circular(5),
             ),
             //- 角丸用Padding
@@ -72,7 +72,7 @@ class SectionWidget extends StatelessWidget {
               content,
               textAlign: TextAlign.left,
               style: TextStyle(
-                color: Color(0xFF231e1e),
+                color: Theme.of(context).colorScheme.primary,
                 fontSize: 14,
                 decoration: TextDecoration.none,
                 fontWeight: FontWeight.w400,
@@ -116,7 +116,7 @@ class SectionWidget extends StatelessWidget {
                     'https://raw.githubusercontent.com/keichan37/keichan37.github.io/master/assets/images/circleArrowRight.svg',
                   ),
                   Container(
-                    color: Color(0xFFffffff),
+                    color: Colors.transparent,
                     child: SizedBox(
                       width: 8,
                       height: 14,
@@ -125,7 +125,7 @@ class SectionWidget extends StatelessWidget {
                   Text(
                     '詳しく見る',
                     style: TextStyle(
-                      color: Color(0xFF514949),
+                      color: Theme.of(context).colorScheme.primary,
                       fontSize: 14,
                       decoration: TextDecoration.none,
                       fontWeight: FontWeight.w400,
