@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'component/section-archive.dart';
+import 'dart:ui';
 
 void main() {
   runApp(const MaterialApp(home: MyApp()));
@@ -13,17 +14,36 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo / yy',
+      title: 'yy',
       theme: ThemeData(
-        primaryColor: Colors.white,
         useMaterial3: true,
         textTheme: GoogleFonts.notoSansTextTheme(
           Theme.of(context).textTheme,
         ),
+        brightness: Brightness.light,
+        colorScheme: ColorScheme.light(
+          primary: Color(0xFF231e1e),
+          secondary: Color(0xFF514949),
+          background: Color(0xFFffffff),
+          surface: Color(0xFFdddddd),
+        ),
+      ),
+      darkTheme: ThemeData(
+        useMaterial3: true,
+        textTheme: GoogleFonts.notoSansTextTheme(
+          Theme.of(context).textTheme,
+        ),
+        brightness: Brightness.dark,
+        colorScheme: ColorScheme.dark(
+          primary: Color(0xFFffffff),
+          secondary: Color(0xFF514949),
+          background: Color(0xFF000000),
+          surface: Color(0xFFeeeeee),
+        ),
       ),
       themeMode: ThemeMode.system,
       home: Scaffold(
-        backgroundColor: Colors.transparent,
+        backgroundColor: Theme.of(context).colorScheme.background,
         //- ScaffoldとappBarの描画位置を一緒に
         extendBodyBehindAppBar: true,
         appBar: AppBar(
@@ -35,9 +55,33 @@ class MyApp extends StatelessWidget {
           ),
           title: SvgPicture.network(
             'https://raw.githubusercontent.com/keichan37/keichan37.github.io/master/assets/images/si.svg',
-          )),
-          endDrawer: const Drawer(
-            child: SafeArea(child: Text('どうもピンチャンです')
+          )
+        ),
+        endDrawer: Drawer(
+          child: ListView(
+            padding: EdgeInsets.zero,
+            children: const <Widget>[
+              DrawerHeader(
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                ),
+                child: Text(
+                  'Domestic Brand',
+                  style: TextStyle(
+                    fontSize: 18,
+                  ),
+                ),
+              ),
+              ListTile(
+                title: Text('sacai'),
+              ),
+              ListTile(
+                title: Text('ISSEI MIYAKE'),
+              ),
+              ListTile(
+                title: Text('Yohji Yamamoto'),
+              ),
+            ],
           ),
         ),
         body: Container(
