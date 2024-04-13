@@ -17,8 +17,8 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
       statusBarColor: Colors.transparent,
-      statusBarBrightness: Brightness.light,
-      statusBarIconBrightness: Brightness.dark,
+      //-statusBarBrightness: Brightness.light,
+      //-statusBarIconBrightness: Brightness.dark,
     ));
     return MaterialApp(
       title: 'yy',
@@ -47,7 +47,7 @@ class MyApp extends StatelessWidget {
           primary: Color(0xFFffffff),
           secondary: Color(0xFFffffff),
           background: Color(0xFF000000),
-          surface: Color(0xFF888888),
+          surface: Color(0x30ffffff),
           shadow: Color(0x00ffffff),
           onBackground: Color(0xFF1a1a1a),
         ),
