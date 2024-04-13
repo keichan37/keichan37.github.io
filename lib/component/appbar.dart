@@ -7,14 +7,15 @@ class BlurredAppBar extends StatelessWidget implements PreferredSizeWidget {
     return SafeArea(
       child: Container(
         padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 0),
+        color: Theme.of(context).colorScheme.background,
         child: Container(
           padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 18),
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(16),
-            color: Theme.of(context).colorScheme.background,
+            color: Theme.of(context).colorScheme.onBackground,
             boxShadow: [
               BoxShadow(
-                color: Color(0x26BB2739),
+                color: Theme.of(context).colorScheme.shadow,
                 blurRadius: 12,
                 offset: Offset(0, 0),
                 spreadRadius: 0,
@@ -29,6 +30,7 @@ class BlurredAppBar extends StatelessWidget implements PreferredSizeWidget {
                 'https://raw.githubusercontent.com/keichan37/keichan37.github.io/master/assets/images/si.svg',
                 height: 24,
                 width: 105.84,
+                colorFilter: ColorFilter.mode(Theme.of(context).colorScheme.primary, BlendMode.srcIn),
               ),
               IconButton(
                 onPressed: () {
