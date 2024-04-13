@@ -50,7 +50,7 @@ class MyApp extends StatelessWidget {
           background: Color(0xFF000000),
           surface: Color(0x30ffffff),
           shadow: Color(0x00ffffff),
-          onBackground: Color(0xFF1a1a1a),
+          onBackground: Color(0xFF212124),
         ),
       ),
       themeMode: ThemeMode.system,
