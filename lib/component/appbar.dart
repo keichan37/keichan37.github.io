@@ -8,7 +8,7 @@ class BlurredAppBar extends StatelessWidget implements PreferredSizeWidget {
     return SafeArea(
       child: Container(
         padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 14),
-        color: Theme.of(context).colorScheme.background,
+        color: Colors.transparent,
         child: Container(
           padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 18),
           decoration: BoxDecoration(
