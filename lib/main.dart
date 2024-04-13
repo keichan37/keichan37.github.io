@@ -51,17 +51,7 @@ class MyApp extends StatelessWidget {
         backgroundColor: Theme.of(context).colorScheme.background,
         //- ScaffoldとappBarの描画位置を一緒に
         extendBodyBehindAppBar: true,
-        appBar: AppBar(
-          toolbarHeight: 72.0,
-          backgroundColor: Colors.transparent,
-          surfaceTintColor: Colors.transparent,
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(16),
-          ),
-          title: SvgPicture.network(
-            'https://raw.githubusercontent.com/keichan37/keichan37.github.io/master/assets/images/si.svg',
-          )
-        ),
+        appBar: BlurredAppBar(),
         endDrawer: Drawer(
           child: ListView(
             padding: EdgeInsets.zero,
@@ -104,4 +94,43 @@ class MyApp extends StatelessWidget {
       ),
     );
   }
+}
+
+class BlurredAppBar extends StatelessWidget implements PreferredSizeWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 14),
+      decoration: BoxDecoration(boxShadow: [
+        BoxShadow(
+          color: Color(0x26BB2739),
+          blurRadius: 16,
+          offset: Offset(0, 0),
+          spreadRadius: 0,
+        ),
+      ]),
+      child: Container(
+        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 18),
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(16),
+          color: Theme.of(context).colorScheme.background,
+        ),
+        child: Row(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            SvgPicture.network(
+              'https://raw.githubusercontent.com/keichan37/keichan37.github.io/master/assets/images/si.svg',
+            ),
+            IconButton(
+              onPressed: () {},
+              icon: Icon(Icons.menu),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+  @override
+  Size get preferredSize => const Size.fromHeight(100.0);
 }
