@@ -3,6 +3,8 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 class SectionWidget extends StatelessWidget {
+
+  //- 変数
   final String title_jp;
   final String title_en;
   final String content;
@@ -136,6 +138,7 @@ class SectionWidget extends StatelessWidget {
                       'https://raw.githubusercontent.com/keichan37/keichan37.github.io/master/assets/images/circleArrowRight.svg',
                       colorFilter: ColorFilter.mode(Theme.of(context).colorScheme.secondary, BlendMode.srcIn),
                     ),
+                    //- アイコンとテキストの間も発火範囲
                     Container(
                       color: Colors.transparent,
                       child: SizedBox(

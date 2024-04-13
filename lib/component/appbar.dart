@@ -4,9 +4,10 @@ import 'package:flutter_svg/flutter_svg.dart';
 class BlurredAppBar extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
+    //- iPhoneのノッチに被らないように
     return SafeArea(
       child: Container(
-        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 0),
+        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 14),
         color: Theme.of(context).colorScheme.background,
         child: Container(
           padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 18),
@@ -44,5 +45,5 @@ class BlurredAppBar extends StatelessWidget implements PreferredSizeWidget {
     );
   }
   @override
-  Size get preferredSize => const Size.fromHeight(72.0);
+  Size get preferredSize => const Size.fromHeight(100.0);
 }
