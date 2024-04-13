@@ -91,17 +91,35 @@ class SectionWidget extends StatelessWidget {
                       context: context,
                       builder: (context) {
                         return AlertDialog(
+                          contentTextStyle: TextStyle(
+                            color: Theme.of(context).colorScheme.primary,
+                          ),
+                          titleTextStyle: TextStyle(
+                            color: Theme.of(context).colorScheme.primary,
+                          ),
                           title: Text('急に芯食ってくんな‼︎'),
                           content: Text('確かにそうゆう説もあるよ‼︎'),
                           actions: <Widget>[
                             GestureDetector(
-                              child: Text('いいえ'),
+                              child:
+                                Text(
+                                  'いいえ',
+                                  style: TextStyle(
+                                    color: Theme.of(context).colorScheme.primary,
+                                  ),
+                                ),
                               onTap: () {
                                 Navigator.pop(context);
                               },
                             ),
                             GestureDetector(
-                              child: Text('はい'),
+                              child:
+                                Text(
+                                  'はい',
+                                  style: TextStyle(
+                                    color: Theme.of(context).colorScheme.primary,
+                                  ),
+                                ),
                               onTap: () {
                                 Navigator.pop(context);
                               },
@@ -116,6 +134,7 @@ class SectionWidget extends StatelessWidget {
                   children: [
                     SvgPicture.network(
                       'https://raw.githubusercontent.com/keichan37/keichan37.github.io/master/assets/images/circleArrowRight.svg',
+                      colorFilter: ColorFilter.mode(Theme.of(context).colorScheme.secondary, BlendMode.srcIn),
                     ),
                     Container(
                       color: Colors.transparent,
