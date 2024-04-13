@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter/services.dart';
+import 'component/appbar.dart';
 import 'component/section-archive.dart';
 import 'dart:ui';
 
@@ -16,7 +17,8 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
       statusBarColor: Colors.transparent,
-      statusBarBrightness: Brightness.dark,
+      statusBarBrightness: Brightness.light,
+      statusBarIconBrightness: Brightness.dark,
     ));
     return MaterialApp(
       title: 'yy',
@@ -51,50 +53,13 @@ class MyApp extends StatelessWidget {
         backgroundColor: Theme.of(context).colorScheme.background,
         //- ScaffoldとappBarの描画位置を一緒に
         extendBodyBehindAppBar: true,
-        appBar: AppBar(
-          toolbarHeight: 72.0,
-          backgroundColor: Colors.transparent,
-          surfaceTintColor: Colors.transparent,
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(16),
-          ),
-          title: SvgPicture.network(
-            'https://raw.githubusercontent.com/keichan37/keichan37.github.io/master/assets/images/si.svg',
-          )
-        ),
-        endDrawer: Drawer(
-          child: ListView(
-            padding: EdgeInsets.zero,
-            children: const <Widget>[
-              DrawerHeader(
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                ),
-                child: Text(
-                  'Domestic Brand',
-                  style: TextStyle(
-                    fontSize: 18,
-                  ),
-                ),
-              ),
-              ListTile(
-                title: Text('sacai'),
-              ),
-              ListTile(
-                title: Text('ISSEI MIYAKE'),
-              ),
-              ListTile(
-                title: Text('Yohji Yamamoto'),
-              ),
-            ],
-          ),
-        ),
+        appBar: BlurredAppBar(),
         body: Container(
           child: SingleChildScrollView(
             child: Column(
               children: <Widget>[
                 //- appBar分
-                const SizedBox(height: 100),
+                const SizedBox(height: 160),
                 SectionWidget("三宅一生", "ISSEY MIYAKE", "広島市立尾長小学校在学中7歳のとき被爆[4][13][14][15][16][17]。広島大学附属東雲中学校[18]～広島県立広島国泰寺高等学校卒業[15][19]。小学校高学年のときの担任が絵の先生で、絵を描く楽しさを教えてもらう[20]。広島の美術館や岡山県倉敷の大原美術館にもよく通った[20]。ルオーが好きだったという[20]。", "https://raw.githubusercontent.com/keichan37/keichan37.github.io/master/assets/images/im.png.webp"),
                 SectionWidget("山本耀司", "Yohji Yamamoto", "歌舞伎町で百貨店に総菜を卸す会社を経営する父・山本文雄と、その経理や事務作業を手伝っていた母・山本冨美の長男として東京都新宿区に生まれた[3]。父がルソン島で戦死した後、母は歌舞伎町でオーダーメイドの洋装店（フミ洋装店）を営んでいた（母も文化服装学院出身）[4]。", "https://raw.githubusercontent.com/keichan37/keichan37.github.io/master/assets/images/yy.png.webp"),
               ],
