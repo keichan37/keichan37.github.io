@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter/services.dart';
+import 'component/appbar.dart';
 import 'component/section-archive.dart';
 import 'dart:ui';
 
@@ -53,33 +54,6 @@ class MyApp extends StatelessWidget {
         //- ScaffoldとappBarの描画位置を一緒に
         extendBodyBehindAppBar: true,
         appBar: BlurredAppBar(),
-        endDrawer: Drawer(
-          child: ListView(
-            padding: EdgeInsets.zero,
-            children: const <Widget>[
-              DrawerHeader(
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                ),
-                child: Text(
-                  'Domestic Brand',
-                  style: TextStyle(
-                    fontSize: 18,
-                  ),
-                ),
-              ),
-              ListTile(
-                title: Text('sacai'),
-              ),
-              ListTile(
-                title: Text('ISSEI MIYAKE'),
-              ),
-              ListTile(
-                title: Text('Yohji Yamamoto'),
-              ),
-            ],
-          ),
-        ),
         body: Container(
           child: SingleChildScrollView(
             child: Column(
@@ -95,45 +69,4 @@ class MyApp extends StatelessWidget {
       ),
     );
   }
-}
-
-class BlurredAppBar extends StatelessWidget implements PreferredSizeWidget {
-  @override
-  Widget build(BuildContext context) {
-    return SafeArea(
-      child: Container(
-        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 0),
-        child: Container(
-          padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 18),
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(16),
-            color: Theme.of(context).colorScheme.background,
-            boxShadow: [
-              BoxShadow(
-                color: Color(0x26BB2739),
-                blurRadius: 12,
-                offset: Offset(0, 0),
-                spreadRadius: 0,
-              ),
-            ]
-          ),
-          child: Row(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              SvgPicture.network(
-                'https://raw.githubusercontent.com/keichan37/keichan37.github.io/master/assets/images/si.svg',
-              ),
-              IconButton(
-                onPressed: () {},
-                icon: Icon(Icons.menu),
-              ),
-            ],
-          ),
-        ),
-      ),
-    );
-  }
-  @override
-  Size get preferredSize => const Size.fromHeight(72.0);
 }
