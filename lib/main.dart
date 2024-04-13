@@ -16,7 +16,8 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
       statusBarColor: Colors.transparent,
-      statusBarBrightness: Brightness.dark,
+      statusBarBrightness: Brightness.light,
+      statusBarIconBrightness: Brightness.dark,
     ));
     return MaterialApp(
       title: 'yy',
@@ -99,34 +100,36 @@ class MyApp extends StatelessWidget {
 class BlurredAppBar extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 14),
-      decoration: BoxDecoration(boxShadow: [
-        BoxShadow(
-          color: Color(0x26BB2739),
-          blurRadius: 16,
-          offset: Offset(0, 0),
-          spreadRadius: 0,
-        ),
-      ]),
+    return SafeArea(
       child: Container(
-        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 18),
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(16),
-          color: Theme.of(context).colorScheme.background,
-        ),
-        child: Row(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            SvgPicture.network(
-              'https://raw.githubusercontent.com/keichan37/keichan37.github.io/master/assets/images/si.svg',
-            ),
-            IconButton(
-              onPressed: () {},
-              icon: Icon(Icons.menu),
-            ),
-          ],
+        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 0),
+        decoration: BoxDecoration(boxShadow: [
+          BoxShadow(
+            color: Color(0x26BB2739),
+            blurRadius: 16,
+            offset: Offset(0, 0),
+            spreadRadius: -8,
+          ),
+        ]),
+        child: Container(
+          padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 18),
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(16),
+            color: Theme.of(context).colorScheme.background,
+          ),
+          child: Row(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              SvgPicture.network(
+                'https://raw.githubusercontent.com/keichan37/keichan37.github.io/master/assets/images/si.svg',
+              ),
+              IconButton(
+                onPressed: () {},
+                icon: Icon(Icons.menu),
+              ),
+            ],
+          ),
         ),
       ),
     );
