@@ -13,6 +13,7 @@ class SectionWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return SelectionArea (
       child: Container(
+        color: Theme.of(context).colorScheme.background,
         width: double.infinity,
         padding: EdgeInsets.only(top: 55, right: 40, bottom: 95, left: 40),
         child: Column(
