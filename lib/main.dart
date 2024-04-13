@@ -27,13 +27,14 @@ class MyApp extends StatelessWidget {
         textTheme: GoogleFonts.notoSansTextTheme(
           Theme.of(context).textTheme,
         ),
-        scaffoldBackgroundColor: Theme.of(context).colorScheme.background,
         brightness: Brightness.light,
         colorScheme: ColorScheme.light(
           primary: Color(0xFF231e1e),
           secondary: Color(0xFF514949),
           background: Color(0xFFffffff),
           surface: Color(0xFFdddddd),
+          shadow: Color(0x26BB2739),
+          onBackground: Color(0xFFffffff),
         ),
       ),
       darkTheme: ThemeData(
@@ -44,14 +45,15 @@ class MyApp extends StatelessWidget {
         brightness: Brightness.dark,
         colorScheme: ColorScheme.dark(
           primary: Color(0xFFffffff),
-          secondary: Color(0xFF514949),
+          secondary: Color(0xFFffffff),
           background: Color(0xFF000000),
-          surface: Color(0xFFeeeeee),
+          surface: Color(0xFF888888),
+          shadow: Color(0x00ffffff),
+          onBackground: Color(0xFF1a1a1a),
         ),
       ),
       themeMode: ThemeMode.system,
       home: Scaffold(
-        backgroundColor: Theme.of(context).colorScheme.background,
         //- ScaffoldとappBarの描画位置を一緒に
         extendBodyBehindAppBar: true,
         appBar: BlurredAppBar(),
@@ -60,8 +62,8 @@ class MyApp extends StatelessWidget {
             child: Column(
               children: <Widget>[
                 //- appBar分
-                ColoredBox(
-                  color: Color(0xFFFFFFFF),
+                Container(
+                  color: Colors.transparent,
                   child: SizedBox(
                     height: 160,
                     width: double.infinity,

@@ -116,6 +116,7 @@ class SectionWidget extends StatelessWidget {
                   children: [
                     SvgPicture.network(
                       'https://raw.githubusercontent.com/keichan37/keichan37.github.io/master/assets/images/circleArrowRight.svg',
+                      colorFilter: ColorFilter.mode(Theme.of(context).colorScheme.secondary, BlendMode.srcIn),
                     ),
                     Container(
                       color: Colors.transparent,
