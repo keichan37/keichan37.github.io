@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
       statusBarColor: Colors.transparent,
-      //- ↓を設定しなければ勝手にステータスバーの色が変わる
+      //- ↓を設定しなければ動的にステータスバーの色が変わる
       //-statusBarBrightness: Brightness.light,
       //-statusBarIconBrightness: Brightness.dark,
     ));
@@ -58,6 +58,33 @@ class MyApp extends StatelessWidget {
         //- ScaffoldとappBarの描画位置を一緒に
         extendBodyBehindAppBar: true,
         appBar: BlurredAppBar(),
+        drawer: Drawer(
+          child: ListView(
+            padding: EdgeInsets.zero,
+            children: const <Widget>[
+              DrawerHeader(
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                ),
+                child: Text(
+                  'Domestic Brand',
+                  style: TextStyle(
+                    fontSize: 18,
+                  ),
+                ),
+              ),
+              ListTile(
+                title: Text('sacai'),
+              ),
+              ListTile(
+                title: Text('ISSEI MIYAKE'),
+              ),
+              ListTile(
+                title: Text('Yohji Yamamoto'),
+              ),
+            ],
+          ),
+        ),
         body: Container(
           child: SingleChildScrollView(
             child: Column(
