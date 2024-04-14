@@ -11,7 +11,7 @@ class BlurredAppBar extends StatelessWidget implements PreferredSizeWidget {
         padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 14),
         color: Colors.transparent,
         child: Container(
-          padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 18),
+          padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(16),
             color: Theme.of(context).colorScheme.onBackground,
@@ -38,8 +38,17 @@ class BlurredAppBar extends StatelessWidget implements PreferredSizeWidget {
                 onTap: () {
                   _scaffoldKey.currentState?.openDrawer();
                 },
-                child: SvgPicture.asset(
-                  'assets/images/hamburger.svg'
+                child: Container(
+                  decoration: BoxDecoration(
+                    color: Theme.of(context).colorScheme.onSurface,
+                    borderRadius: BorderRadius.circular(20),
+                  ),
+                  child: Padding(
+                    padding: const EdgeInsets.all(11.12),
+                    child: SvgPicture.network(
+                      'https://raw.githubusercontent.com/keichan37/keichan37.github.io/master/assets/images/hamburger.svg'
+                    ),
+                  ),
                 ),
               ),
             ],
