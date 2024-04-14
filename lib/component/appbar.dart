@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 class BlurredAppBar extends StatelessWidget implements PreferredSizeWidget {
+  final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
   @override
   Widget build(BuildContext context) {
     //- iPhoneのノッチに被らないように
@@ -33,10 +34,13 @@ class BlurredAppBar extends StatelessWidget implements PreferredSizeWidget {
                 width: 105.84,
                 colorFilter: ColorFilter.mode(Theme.of(context).colorScheme.primary, BlendMode.srcIn),
               ),
-              IconButton(
-                onPressed: () {
+              InkWell(
+                onTap: () {
+                  _scaffoldKey.currentState?.openDrawer();
                 },
-                icon: Icon(Icons.menu),
+                child: SvgPicture.asset(
+                  'assets/images/hamburger.svg'
+                ),
               ),
             ],
           ),
