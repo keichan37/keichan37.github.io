@@ -36,6 +36,7 @@ class MyApp extends StatelessWidget {
           surface: Color(0xFFdddddd),
           shadow: Color(0x26BB2739),
           onBackground: Color(0xFFffffff),
+          onSurface: Color(0xFF231e1e),
         ),
       ),
       darkTheme: ThemeData(
@@ -51,6 +52,7 @@ class MyApp extends StatelessWidget {
           surface: Color(0x30ffffff),
           shadow: Color(0x00ffffff),
           onBackground: Color(0xFF212124),
+          onSurface: Color(0xFF000000),
         ),
       ),
       themeMode: ThemeMode.system,
