@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 class BlurredAppBar extends StatelessWidget implements PreferredSizeWidget {
-  final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
   @override
   Widget build(BuildContext context) {
     //- iPhoneのノッチに被らないように
@@ -36,7 +35,7 @@ class BlurredAppBar extends StatelessWidget implements PreferredSizeWidget {
               ),
               InkWell(
                 onTap: () {
-                  _scaffoldKey.currentState?.openDrawer();
+                  Scaffold.of(context).openDrawer();
                 },
                 child: Container(
                   decoration: BoxDecoration(
