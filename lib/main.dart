@@ -19,7 +19,7 @@ class MyApp extends StatelessWidget {
       statusBarColor: Colors.transparent,
       //- ↓を設定しなければ動的にステータスバーの色が変わる
       //-statusBarBrightness: Brightness.light,
-      //-statusBarIconBrightness: Brightness.dark,
+      statusBarIconBrightness: Brightness.dark,
     ));
     return MaterialApp(
       title: 'yy',
@@ -61,30 +61,50 @@ class MyApp extends StatelessWidget {
         extendBodyBehindAppBar: true,
         appBar: BlurredAppBar(),
         drawer: Drawer(
-          child: ListView(
-            padding: EdgeInsets.zero,
-            children: const <Widget>[
-              DrawerHeader(
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                ),
-                child: Text(
-                  'Domestic Brand',
-                  style: TextStyle(
-                    fontSize: 18,
+          child: Container(
+            color: Theme.of(context).colorScheme.onBackground,
+            child: ListView(
+              padding: EdgeInsets.zero,
+              children: <Widget>[
+                DrawerHeader(
+                  decoration: BoxDecoration(
+                    color: Theme.of(context).colorScheme.onBackground,
+                  ),
+                  child: Text(
+                    'Domestic Brand',
+                    style: TextStyle(
+                      color: Theme.of(context).colorScheme.secondary,
+                      fontSize: 18,
+                      height: 1.4,
+                    ),
                   ),
                 ),
-              ),
-              ListTile(
-                title: Text('sacai'),
-              ),
-              ListTile(
-                title: Text('ISSEI MIYAKE'),
-              ),
-              ListTile(
-                title: Text('Yohji Yamamoto'),
-              ),
-            ],
+                ListTile(
+                  title: Text(
+                    'sacai',
+                    style: TextStyle(
+                      color: Theme.of(context).colorScheme.secondary,
+                    ),
+                  ),
+                ),
+                ListTile(
+                  title: Text(
+                    'ISSEI MIYAKE',
+                    style: TextStyle(
+                      color: Theme.of(context).colorScheme.secondary,
+                    ),
+                  ),
+                ),
+                ListTile(
+                  title: Text(
+                    'Yohji Yamamoto',
+                    style: TextStyle(
+                      color: Theme.of(context).colorScheme.secondary,
+                    ),
+                  ),
+                ),
+              ],
+            ),
           ),
         ),
         body: Container(
