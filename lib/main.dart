@@ -123,8 +123,8 @@ class MyApp extends StatelessWidget {
                     return Builder(
                       builder: (BuildContext context) {
                         return Container(
-                          child: Image.asset(
-                            "images/s-$i.jpg.webp",
+                          child: Image.network(
+                            'https://raw.githubusercontent.com/keichan37/keichan37.github.io/master/assets/images/s-$i.jpg.webp',
                             fit: BoxFit.cover,
                           ),
                         );
