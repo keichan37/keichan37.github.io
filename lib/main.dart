@@ -27,6 +27,8 @@ class MyApp extends StatelessWidget {
       title: 'yy',
       theme: ThemeData(
         useMaterial3: true,
+        splashColor: Colors.transparent,
+        highlightColor: Colors.transparent,
         textTheme: GoogleFonts.notoSansTextTheme(
           Theme.of(context).textTheme,
         ),
@@ -138,14 +140,23 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       body: _screens[_selectedIndex],
       bottomNavigationBar: BottomNavigationBar(
+        elevation: 50,
+        selectedItemColor: Theme.of(context).colorScheme.secondary,
+        unselectedItemColor: Theme.of(context).colorScheme.surface,
+        selectedFontSize: 12,
+        enableFeedback: true,
+        backgroundColor: Colors.transparent,
         items: const [
           BottomNavigationBarItem(
             icon: Icon(Icons.home),
-            label: 'ホーム',
+            //icon: SvgPicture.asset(
+            //  'assets/images/tops.svg'
+            //),
+            label: 'トップス',
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.notifications),
-            label: '通知',
+            label: 'ボトムス',
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.person),
