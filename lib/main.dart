@@ -71,10 +71,10 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
 
-  static const _screens = [
+  static final _screens = [
+    AccountScreen(),
     HomeScreen(),
     NotificationScreen(),
-    AccountScreen()
   ];
 
   int _selectedIndex = 0;
