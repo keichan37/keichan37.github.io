@@ -146,12 +146,11 @@ class _MyHomePageState extends State<MyHomePage> {
         selectedFontSize: 12,
         enableFeedback: true,
         backgroundColor: Colors.transparent,
-        items: const [
+        items: [
           BottomNavigationBarItem(
-            icon: Icon(Icons.home),
-            //icon: SvgPicture.asset(
-            //  'assets/images/tops.svg'
-            //),
+            icon: SvgPicture.asset(
+              'assets/images/tops.svg'
+            ),
             label: 'トップス',
           ),
           BottomNavigationBarItem(
