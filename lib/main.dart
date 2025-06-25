@@ -27,6 +27,7 @@ class MyApp extends StatelessWidget {
       title: 'yy',
       theme: ThemeData(
         useMaterial3: true,
+        splashFactory: NoSplash.splashFactory,
         splashColor: Colors.transparent,
         highlightColor: Colors.transparent,
         textTheme: GoogleFonts.notoSansTextTheme(
@@ -149,17 +150,36 @@ class _MyHomePageState extends State<MyHomePage> {
         items: [
           BottomNavigationBarItem(
             icon: SvgPicture.asset(
-              'assets/images/tops.svg'
+              'assets/images/tops.svg',
+              width: 28,
+              height: 28,
+              color: _selectedIndex == 0
+                ? Theme.of(context).colorScheme.secondary
+                : Theme.of(context).colorScheme.surface,
             ),
             label: 'トップス',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.notifications),
+            icon: SvgPicture.asset(
+              'assets/images/bottoms.svg',
+              width: 28,
+              height: 28,
+              color: _selectedIndex == 1
+                ? Theme.of(context).colorScheme.secondary
+                : Theme.of(context).colorScheme.surface,
+            ),
             label: 'ボトムス',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.person),
-            label: 'プロフィール',
+            icon: SvgPicture.asset(
+              'assets/images/shoes.svg',
+              width: 28,
+              height: 28,
+              color: _selectedIndex == 2
+                ? Theme.of(context).colorScheme.secondary
+                : Theme.of(context).colorScheme.surface,
+            ),
+            label: 'シューズ',
           ),
         ],
         currentIndex: _selectedIndex,
