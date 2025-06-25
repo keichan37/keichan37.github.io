@@ -140,50 +140,63 @@ class _MyHomePageState extends State<MyHomePage> {
         ),
       ),
       body: _screens[_selectedIndex],
-      bottomNavigationBar: BottomNavigationBar(
-        elevation: 50,
-        selectedItemColor: Theme.of(context).colorScheme.secondary,
-        unselectedItemColor: Theme.of(context).colorScheme.surface,
-        selectedFontSize: 12,
-        enableFeedback: true,
-        backgroundColor: Colors.transparent,
-        items: [
-          BottomNavigationBarItem(
-            icon: SvgPicture.asset(
-              'assets/images/tops.svg',
-              width: 28,
-              height: 28,
-              color: _selectedIndex == 0
-                ? Theme.of(context).colorScheme.secondary
-                : Theme.of(context).colorScheme.surface,
+      bottomNavigationBar: Container(
+        decoration: BoxDecoration(
+          color: Theme.of(context).colorScheme.onBackground,
+          boxShadow: [
+            BoxShadow(
+              color: Theme.of(context).colorScheme.shadow,
+              blurRadius: 12,
+              offset: Offset(0, 0),
+              spreadRadius: 0,
             ),
-            label: 'トップス',
-          ),
-          BottomNavigationBarItem(
-            icon: SvgPicture.asset(
-              'assets/images/bottoms.svg',
-              width: 28,
-              height: 28,
-              color: _selectedIndex == 1
-                ? Theme.of(context).colorScheme.secondary
-                : Theme.of(context).colorScheme.surface,
+          ]
+        ),
+        child: BottomNavigationBar(
+          elevation: 50,
+          selectedItemColor: Theme.of(context).colorScheme.secondary,
+          unselectedItemColor: Theme.of(context).colorScheme.surface,
+          selectedFontSize: 12,
+          enableFeedback: true,
+          backgroundColor: Colors.transparent,
+          items: [
+            BottomNavigationBarItem(
+              icon: SvgPicture.asset(
+                'assets/images/tops.svg',
+                width: 28,
+                height: 28,
+                color: _selectedIndex == 0
+                  ? Theme.of(context).colorScheme.secondary
+                  : Theme.of(context).colorScheme.surface,
+              ),
+              label: 'トップス',
             ),
-            label: 'ボトムス',
-          ),
-          BottomNavigationBarItem(
-            icon: SvgPicture.asset(
-              'assets/images/shoes.svg',
-              width: 28,
-              height: 28,
-              color: _selectedIndex == 2
-                ? Theme.of(context).colorScheme.secondary
-                : Theme.of(context).colorScheme.surface,
+            BottomNavigationBarItem(
+              icon: SvgPicture.asset(
+                'assets/images/bottoms.svg',
+                width: 28,
+                height: 28,
+                color: _selectedIndex == 1
+                  ? Theme.of(context).colorScheme.secondary
+                  : Theme.of(context).colorScheme.surface,
+              ),
+              label: 'ボトムス',
             ),
-            label: 'シューズ',
-          ),
-        ],
-        currentIndex: _selectedIndex,
-        onTap: _onItemTapped,
+            BottomNavigationBarItem(
+              icon: SvgPicture.asset(
+                'assets/images/shoes.svg',
+                width: 28,
+                height: 28,
+                color: _selectedIndex == 2
+                  ? Theme.of(context).colorScheme.secondary
+                  : Theme.of(context).colorScheme.surface,
+              ),
+              label: 'シューズ',
+            ),
+          ],
+          currentIndex: _selectedIndex,
+          onTap: _onItemTapped,
+        ),
       ),
     );
   }
