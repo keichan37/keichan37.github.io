@@ -12,7 +12,7 @@ class NotificationScreen extends StatelessWidget {
         child: Column(
           children: <Widget>[
             Text(
-              '通知',
+              'ボトムス',
               style: TextStyle(
                 color: Theme.of(context).colorScheme.primary,
                 fontSize: 16,
