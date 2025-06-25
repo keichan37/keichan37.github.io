@@ -12,7 +12,7 @@ class AccountScreen extends StatelessWidget {
         child: Column(
           children: <Widget>[
             Text(
-              'アカウント',
+              'シューズ',
               style: TextStyle(
                 color: Theme.of(context).colorScheme.primary,
                 fontSize: 16,
