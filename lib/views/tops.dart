@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import '../component/section-archive.dart';
 
-class HomeScreen extends StatelessWidget {
-  const HomeScreen({Key? key}) : super(key: key);
+class TopsScreen extends StatelessWidget {
+  const TopsScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

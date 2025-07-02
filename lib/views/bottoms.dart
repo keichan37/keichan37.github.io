@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class AccountScreen extends StatelessWidget {
-  const AccountScreen({Key? key}) : super(key: key);
+class BottomsScreen extends StatelessWidget {
+  const BottomsScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -12,7 +12,7 @@ class AccountScreen extends StatelessWidget {
         child: Column(
           children: <Widget>[
             Text(
-              'シューズ',
+              'ボトムス',
               style: TextStyle(
                 color: Theme.of(context).colorScheme.primary,
                 fontSize: 16,
