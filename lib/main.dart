@@ -2,10 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter/cupertino.dart';
 import 'component/appbar.dart';
-import 'views/home.dart';
-import 'views/notification.dart';
-import 'views/account.dart';
+import 'views/tops.dart';
+import 'views/bottoms.dart';
+import 'views/shoes.dart';
 import 'dart:ui';
 
 void main() {
@@ -30,8 +31,16 @@ class MyApp extends StatelessWidget {
         splashFactory: NoSplash.splashFactory,
         splashColor: Colors.transparent,
         highlightColor: Colors.transparent,
-        textTheme: GoogleFonts.notoSansTextTheme(
-          Theme.of(context).textTheme,
+        textTheme: GoogleFonts.notoSansTextTheme().copyWith(
+          displayLarge: GoogleFonts.notoSans(fontWeight: FontWeight.w500),
+          displayMedium: GoogleFonts.notoSans(fontWeight: FontWeight.w500),
+          displaySmall: GoogleFonts.notoSans(fontWeight: FontWeight.w500),
+          bodyLarge: GoogleFonts.notoSans(fontWeight: FontWeight.w500),
+          bodyMedium: GoogleFonts.notoSans(fontWeight: FontWeight.w500),
+          bodySmall: GoogleFonts.notoSans(fontWeight: FontWeight.w500),
+          labelLarge: GoogleFonts.notoSans(fontWeight: FontWeight.w500),
+          labelMedium: GoogleFonts.notoSans(fontWeight: FontWeight.w500),
+          labelSmall: GoogleFonts.notoSans(fontWeight: FontWeight.w500),
         ),
         brightness: Brightness.light,
         colorScheme: ColorScheme.light(
@@ -46,8 +55,19 @@ class MyApp extends StatelessWidget {
       ),
       darkTheme: ThemeData(
         useMaterial3: true,
-        textTheme: GoogleFonts.notoSansTextTheme(
-          Theme.of(context).textTheme,
+        splashFactory: NoSplash.splashFactory,
+        splashColor: Colors.transparent,
+        highlightColor: Colors.transparent,
+        textTheme: GoogleFonts.notoSansTextTheme().copyWith(
+          displayLarge: GoogleFonts.notoSans(fontWeight: FontWeight.w500),
+          displayMedium: GoogleFonts.notoSans(fontWeight: FontWeight.w500),
+          displaySmall: GoogleFonts.notoSans(fontWeight: FontWeight.w500),
+          bodyLarge: GoogleFonts.notoSans(fontWeight: FontWeight.w500),
+          bodyMedium: GoogleFonts.notoSans(fontWeight: FontWeight.w500),
+          bodySmall: GoogleFonts.notoSans(fontWeight: FontWeight.w500),
+          labelLarge: GoogleFonts.notoSans(fontWeight: FontWeight.w500),
+          labelMedium: GoogleFonts.notoSans(fontWeight: FontWeight.w500),
+          labelSmall: GoogleFonts.notoSans(fontWeight: FontWeight.w500),
         ),
         brightness: Brightness.dark,
         colorScheme: ColorScheme.dark(
@@ -73,16 +93,39 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
 
   static const _screens = [
-    HomeScreen(),
-    NotificationScreen(),
-    AccountScreen()
+    TopsScreen(),
+    BottomsScreen(),
+    ShoesScreen()
   ];
 
   int _selectedIndex = 0;
+  bool _isLoading = true; // 初期表示時はローディング状態
 
-  void _onItemTapped(int index) {
+  @override
+  void initState() {
+    super.initState();
+    _loadInitialData();
+  }
+
+  Future<void> _loadInitialData() async {
+    // 初期データの読み込みや準備のシミュレーション
+    await Future.delayed(Duration(seconds: 2)); // 2秒の遅延
+    setState(() {
+      _isLoading = false; // 初期ローディング終了
+    });
+  }
+
+  void _onItemTapped(int index) async {
+    setState(() {
+      _isLoading = true; // ローディング開始
+    });
+
+    // 実際のデータ取得や処理のシミュレーション
+    await Future.delayed(Duration(milliseconds: 500)); // 500msの遅延
+
     setState(() {
       _selectedIndex = index;
+      _isLoading = false; // ローディング終了
     });
   }
 
@@ -98,48 +141,59 @@ class _MyHomePageState extends State<MyHomePage> {
           child: ListView(
             padding: EdgeInsets.zero,
             children: <Widget>[
-              DrawerHeader(
-                decoration: BoxDecoration(
-                  color: Theme.of(context).colorScheme.onBackground,
-                ),
-                child: Text(
-                  'Domestic Brand',
+              SizedBox(height: MediaQuery.of(context).padding.top),
+              ListTile(
+                title: Text(
+                  'トップス',
                   style: TextStyle(
                     color: Theme.of(context).colorScheme.secondary,
-                    fontSize: 18,
-                    height: 1.4,
+                    fontWeight: _selectedIndex == 0
+                        ? FontWeight.bold
+                        : FontWeight.w500,
                   ),
                 ),
+                onTap: () {
+                  _onItemTapped(0);
+                  Navigator.pop(context);
+                },
               ),
               ListTile(
                 title: Text(
-                  'sacai',
+                  'ボトムス',
                   style: TextStyle(
                     color: Theme.of(context).colorScheme.secondary,
+                    fontWeight: _selectedIndex == 1
+                        ? FontWeight.bold
+                        : FontWeight.normal,
                   ),
                 ),
+                onTap: () {
+                  _onItemTapped(1);
+                  Navigator.pop(context);
+                },
               ),
               ListTile(
                 title: Text(
-                  'ISSEI MIYAKE',
+                  'シューズ',
                   style: TextStyle(
                     color: Theme.of(context).colorScheme.secondary,
+                    fontWeight: _selectedIndex == 2
+                        ? FontWeight.bold
+                        : FontWeight.normal,
                   ),
                 ),
-              ),
-              ListTile(
-                title: Text(
-                  'Yohji Yamamoto',
-                  style: TextStyle(
-                    color: Theme.of(context).colorScheme.secondary,
-                  ),
-                ),
+                onTap: () {
+                  _onItemTapped(2);
+                  Navigator.pop(context);
+                },
               ),
             ],
           ),
         ),
       ),
-      body: _screens[_selectedIndex],
+      body: _isLoading
+          ? Center(child: CupertinoActivityIndicator()) // ローディング中はインジケータを表示
+          : _screens[_selectedIndex],
       bottomNavigationBar: Container(
         decoration: BoxDecoration(
           color: Theme.of(context).colorScheme.onBackground,
