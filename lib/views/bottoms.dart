@@ -1,5 +1,7 @@
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class BottomsScreen extends StatefulWidget {
   const BottomsScreen({Key? key}) : super(key: key);
@@ -113,100 +115,108 @@ class _BottomsScreenState extends State<BottomsScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea( // Wrap with SafeArea
-      child: Column( // New Column
-        children: [
-          Expanded( // Expanded SingleChildScrollView
-            child: SingleChildScrollView(
-              child: Padding(
-                padding: const EdgeInsets.all(16.0),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: <Widget>[
-                    CupertinoButton(
-                      onPressed: _showBrandPicker,
-                      child: Container(
-                        padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
-                        decoration: BoxDecoration(
-                          border: Border.all(color: CupertinoColors.lightBackgroundGray, width: 2.0),
-                          borderRadius: BorderRadius.circular(8.0),
-                        ),
-                        child: Row(
-                          mainAxisSize: MainAxisSize.min,
-                          children: [
-                            Text(
-                              selectedBrand ?? 'ブランドで絞り込み',
-                              style: const TextStyle(color: CupertinoColors.label),
-                            ),
-                            const SizedBox(width: 8.0),
-                            const Icon(CupertinoIcons.down_arrow, size: 16.0),
-                          ],
-                        ),
-                      ),
+    return SingleChildScrollView(
+      child: Padding(
+        padding: const EdgeInsets.fromLTRB(40.0, 170.0, 40.0, 80.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: <Widget>[
+            CupertinoButton(
+              onPressed: _showBrandPicker,
+              child: Container(
+                padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
+                decoration: BoxDecoration(
+                  border: Border.all(color: CupertinoColors.lightBackgroundGray, width: 2.0),
+                  borderRadius: BorderRadius.circular(8.0),
+                ),
+                child: Row(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Text(
+                      selectedBrand ?? 'ブランドで絞り込み',
+                      style: const TextStyle(color: CupertinoColors.label),
                     ),
-                    const SizedBox(height: 20),
-                    if (selectedBrand != null)
-                      Column(
-                        children: [
-                          Text(
-                            '選択中のブランド: $selectedBrand',
-                            style: const TextStyle(
-                              fontSize: 16,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                          const SizedBox(height: 10),
-                          Text(
-                            brandDescriptions[selectedBrand!] ?? '',
-                            style: const TextStyle(
-                              fontSize: 14,
-                            ),
-                          ),
-                          const SizedBox(height: 20),
-                        if (coordinationText != null)
-                          Column(
-                            children: [
-                              const Text(
-                                'コーディネート情報',
-                                style: TextStyle(
-                                  fontSize: 16,
-                                  fontWeight: FontWeight.bold,
-                                ),
-                              ),
-                              const SizedBox(height: 10),
-                              Text(
-                                coordinationText!,
-                                style: const TextStyle(
-                                  fontSize: 14,
-                                ),
-                              ),
-                            ],
-                          ),
-                        const SizedBox(height: 20),
-                        const Text(
-                          'このブランドが好きな方へのおすすめ',
-                          style: TextStyle(
-                            fontSize: 16,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                        const SizedBox(height: 10),
-                        if (brandRecommendations[selectedBrand!] != null)
-                          Wrap(
-                            spacing: 8.0,
-                            runSpacing: 4.0,
-                            children: brandRecommendations[selectedBrand!]!
-                                .map((brand) => Chip(label: Text(brand)))
-                                .toList(),
-                          ),
-                        ],
-                      ),
                   ],
                 ),
               ),
             ),
-          ),
-        ],
+            const SizedBox(height: 80),
+            if (selectedBrand != null)
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    "選択中のブランド: $selectedBrand",
+                    style: GoogleFonts.shipporiMincho(
+                      textStyle: Theme.of(context).textTheme.headlineMedium,
+                      color: Theme.of(context).colorScheme.primary,
+                      fontSize: 32.0,
+                      letterSpacing: 8,
+                      fontWeight: FontWeight.w500,
+                    ),
+                  ),
+                  if (selectedBrand == 'Yohji Yamamoto')
+                    Column(
+                      children: [
+                        const SizedBox(height: 24),
+                        SvgPicture.asset('assets/images/yy.svg', width: 200, height: 200),
+                      ],
+                    ),
+                  const SizedBox(height: 24),
+                  Text(
+                    brandDescriptions[selectedBrand!] ?? '',
+                    style: const TextStyle(
+                      fontSize: 14,
+                    ),
+                  ),
+                  const SizedBox(height: 80),
+                  if (coordinationText != null)
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          'コーディネート情報',
+                          style: GoogleFonts.shipporiMincho(
+                            textStyle: Theme.of(context).textTheme.headlineMedium,
+                            color: Theme.of(context).colorScheme.primary,
+                            fontSize: 32.0,
+                            letterSpacing: 8,
+                            fontWeight: FontWeight.w500,
+                          ),
+                        ),
+                        const SizedBox(height: 24),
+                        Text(
+                          coordinationText!,
+                          style: const TextStyle(
+                            fontSize: 14,
+                          ),
+                        ),
+                      ],
+                    ),
+                  const SizedBox(height: 80),
+                  Text(
+                    'このブランドが好きな方へのおすすめ',
+                    style: GoogleFonts.shipporiMincho(
+                      textStyle: Theme.of(context).textTheme.headlineMedium,
+                      color: Theme.of(context).colorScheme.primary,
+                      fontSize: 32.0,
+                      letterSpacing: 8,
+                      fontWeight: FontWeight.w500,
+                    ),
+                  ),
+                  const SizedBox(height: 24),
+                  if (brandRecommendations[selectedBrand!] != null)
+                    Wrap(
+                      spacing: 8.0,
+                      runSpacing: 4.0,
+                      children: brandRecommendations[selectedBrand!]!
+                          .map((brand) => Chip(label: Text(brand)))
+                          .toList(),
+                    ),
+                ],
+              ),
+          ],
+        ),
       ),
     );
   }
